@@ -5,10 +5,14 @@ namespace spec\Waggle\Factories;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
+/**
+ * Spec tests for generating email markup with
+ * the Email Handlebars Factory
+ */
 class EmailHandlebarsFactorySpec extends ObjectBehavior {
   function it_is_initializable() {
-    $this->shouldHaveType('Waggle\Factories\EmailHandlebarsFactory');
-    $this->shouldHaveType('Nectary\Factory');
+    $this->shouldHaveType( 'Waggle\Factories\EmailHandlebarsFactory' );
+    $this->shouldHaveType( 'Nectary\Factory' );
   }
 
   function it_can_render_data() {
