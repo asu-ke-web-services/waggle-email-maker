@@ -15,6 +15,18 @@ class EmailHandlebarsFactorySpec extends ObjectBehavior {
     $this->shouldHaveType( 'Nectary\Factory' );
   }
 
+  function it_will_make_its_own_dependencies_if_they_are_not_provided() {
+    $this->beConstructedWith( null, null, null );
+
+    $template = '<p>{{name}}</p>';
+    $data = array( 'name' => 'Steve' );
+
+    $this->set_handlebars( $template );
+    $this->set_data( $data );
+
+    $this->build()->shouldMatch( '/.*<p>Steve<\\/p>.*/i' );
+  }
+
   function it_can_render_data() {
     $template = '<p>{{name}}</p>';
     $data = array( 'name' => 'Steve' );
@@ -31,6 +43,16 @@ class EmailHandlebarsFactorySpec extends ObjectBehavior {
 
     $this->set_handlebars( $template );
     $this->set_css( $css );
+
+    $this->build()->shouldMatch( '/.*<p style="font-size: 10px;">Steve<\\/p>.*/i' );
+  }
+
+  function it_can_inline_scss() {
+    $scss = 'p { font-size: 5px + 5px }';
+    $template = '<p>Steve</p>';
+
+    $this->set_handlebars( $template );
+    $this->set_scss( $scss );
 
     $this->build()->shouldMatch( '/.*<p style="font-size: 10px;">Steve<\\/p>.*/i' );
   }
