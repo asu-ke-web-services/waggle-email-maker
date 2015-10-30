@@ -1,0 +1,34 @@
+{
+    "name": "gios-asu/beeswax-email-pipline",
+    "description": "Email generation pipeline for HTML emails",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "The Global Institute of Sustainability",
+            "email": "giosweb@asu.edu"
+        }
+    ],
+    "autoload": {
+        "classmap" : [ "src/" ]
+    },
+     "repositories": [
+        {
+            "url": "https://github.com/gios-asu/nectary.git",
+            "type": "git"
+        }
+    ],
+    "require": {
+        "gios-asu/nectary": "dev-ivan-response-develop",
+        "xamin/handlebars.php": "dev-master",
+        "pelago/emogrifier": "@dev",
+        "leafo/scssphp": "0.0.12"
+    },
+    "require-dev": {
+        "satooshi/php-coveralls": ">=0.6",
+        "phpspec/phpspec": "~2.0",
+        "phpunit/phpcov": "*",
+        "henrikbjorn/phpspec-code-coverage": "~1.0",
+        "ext-xdebug": ">=2.1.4",
+        "squizlabs/php_codesniffer": "2.*"
+    }
+}

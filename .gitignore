@@ -1,0 +1,6 @@
+composer.phar
+vendor/
+
+coverage
+coverage.xml
+standards/wpcs
