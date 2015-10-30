@@ -4,7 +4,7 @@ namespace Waggle\Factories;
 
 use Nectary\Factory;
 
-use scssc as scss;
+use scssc as Scss;
 use Handlebars\Handlebars;
 use Pelago\Emogrifier;
 
@@ -35,13 +35,13 @@ class EmailHandlebarsFactory extends Factory {
    * If you do this, you should also have all of those styles injected using
    * `set_css`.
    */
-  public function __construct( scss $scss = null, Handlebars $handlebars_service = null, Emogrifier $emogrifier_service = null ) {
+  public function __construct( Scss $scss = null, Handlebars $handlebars_service = null, Emogrifier $emogrifier_service = null ) {
     $this->data       = [];
     $this->handlebars = '';
     $this->css       = '';
 
     if ( $scss === null ) {
-      $this->scss_service = new scss();
+      $this->scss_service = new Scss();
     } else {
       $this->scss_service = $scss;
     }
