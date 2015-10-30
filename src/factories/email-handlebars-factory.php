@@ -68,7 +68,7 @@ class EmailHandlebarsFactory extends Factory {
   }
 
   /**
-   * Pass in raw handlebars, like `"{title}"` or pass in 
+   * Pass in raw handlebars, like `"{title}"` or pass in
    * a template name like `"my-handlebars.handlebars"` if
    * you have created this Factory with an instance of the
    * Handlebars object with loader and partials loader settings
@@ -94,7 +94,7 @@ class EmailHandlebarsFactory extends Factory {
         $this->data
     );
 
-    $this->emogrifier_service->setHtml( $rendered_template);
+    $this->emogrifier_service->setHtml( $rendered_template );
     $this->emogrifier_service->setCss( $this->css );
 
     $html = $this->emogrifier_service->emogrify();
