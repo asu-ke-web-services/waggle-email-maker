@@ -5,6 +5,10 @@ namespace spec\Waggle\Factories;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
+use scssc as Scss;
+use Handlebars\Handlebars;
+use Pelago\Emogrifier;
+
 /**
  * Spec tests for generating email markup with
  * the Email Handlebars Factory
@@ -25,6 +29,26 @@ class EmailHandlebarsFactorySpec extends ObjectBehavior {
     $this->set_data( $data );
 
     $this->build()->shouldMatch( '/.*<p>Steve<\\/p>.*/i' );
+  }
+
+  function it_will_use_injected_dependencies( Scss $scssc, Handlebars $handlebars, Emogrifier $emogrifier ) {
+    $template = 'template';
+    $data = array( 'key' => 'value' );
+    $scss = 'scss';
+
+    $scssc->compile( $scss )->shouldBeCalled()->willReturn( 'css' );
+    $handlebars->render( $template, $data )->shouldBeCalled()->willReturn( 'html' );
+    $emogrifier->setHtml( 'html' )->shouldBeCalled();
+    $emogrifier->setCss( 'css' )->shouldBeCalled();
+    $emogrifier->emogrify()->shouldBeCalled()->willReturn( 'emorgified' );
+
+    $this->beConstructedWith( $scssc, $handlebars, $emogrifier );
+
+    $this->set_handlebars( $template );
+    $this->set_data( $data );
+    $this->set_scss( $scss );
+
+    $this->build()->shouldEqual( 'emorgified' );
   }
 
   function it_can_render_data() {
