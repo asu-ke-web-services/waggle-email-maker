@@ -10,13 +10,15 @@ PHP email utilities for creating email safe HTML
 
 ### Installation
 
-TODO
+```
+composer require gios-asu/waggle-email-maker
+```
 
 ### Email Handlebars Factory
 
 Example usage:
 
-```
+```php
 use Waggle\Factories\EmailHandlebarsFactory;
 
 $factory = new EmailHandlebarsFactory();

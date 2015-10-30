@@ -1,6 +1,9 @@
 {
     "name": "gios-asu/waggle-email-maker",
     "description": "PHP email utilities for creating email safe HTML",
+    "version": "0.0.1",
+    "type": "library",
+    "keywords": ["email", "emorgify", "scss", "handlebars"],
     "license": "MIT",
     "authors": [
         {
