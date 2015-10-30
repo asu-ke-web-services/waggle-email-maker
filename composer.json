@@ -1,6 +1,6 @@
 {
-    "name": "gios-asu/beeswax-email-pipline",
-    "description": "Email generation pipeline for HTML emails",
+    "name": "gios-asu/waggle-email-maker",
+    "description": "PHP email utilities for creating email safe HTML",
     "license": "MIT",
     "authors": [
         {
