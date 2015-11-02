@@ -50,6 +50,10 @@ class EmailHandlebarsFactorySpec extends ObjectBehavior {
 
     $this->build()->shouldEqual( 'emorgified' );
   }
+  
+  function it_will_build() {
+    $this->build()->shouldEqual( '' );
+  }
 
   function it_can_render_data() {
     $template = '<p>{{name}}</p>';
