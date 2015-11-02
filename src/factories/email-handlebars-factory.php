@@ -97,7 +97,13 @@ class EmailHandlebarsFactory extends Factory {
     $this->emogrifier_service->setHtml( $rendered_template );
     $this->emogrifier_service->setCss( $this->css );
 
-    $html = $this->emogrifier_service->emogrify();
+    // Return an empty string if we are going to call $emogrify with
+    // an empty string.
+    if ( empty( $rendered_template ) ) {
+      $html = '';
+    } else {
+      $html = $this->emogrifier_service->emogrify();
+    }
 
     return $html;
   }
